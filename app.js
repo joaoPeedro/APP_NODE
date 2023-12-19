@@ -9,7 +9,7 @@ const whitelist = ['192.168.1.1', '10.0.0.1', 'http://localhost:3120', 'http://l
 // Endereço IP da sua VPN
 const vpnIpAddress = '93.176.86.249'; // Substitua pelo IP da sua VPN
 
-// Middleware para verificar o IP asas
+// Middleware para verificar o IP
 const checkVpnIp = (req, res, next) => {
   const clientIp = req.ip; // Obtém o IP do cliente da solicitação
 
@@ -24,7 +24,7 @@ const checkVpnIp = (req, res, next) => {
 };
 
 // Aplica o middleware de verificação de IP
-//app.use(checkVpnIp);
+app.use(checkVpnIp);
 
 // Middleware de whitelist
 const whitelistMiddleware = (req, res, next) => {
