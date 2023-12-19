@@ -13,13 +13,13 @@ const whitelist = [
 ];
 
 // Endereço IP da sua VPN
-const vpnIpAddress = ["93.176.86.249", "127.0.0.1"]; // Substitua pelo IP da sua VPN
+const vpnIpAddress = ["93.176.86.249", "127.0.0.1", "147.182.224.87"]; // Substitua pelo IP da sua VPN
 
 // Middleware para verificar o IP
 const checkVpnIp = (req, res, next) => {
-  const clientIp = req['x-real-ip']; // Obtém o IP do cliente da solicitação
+  const clientIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;; // Obtém o IP do cliente da solicitação
 
-  console.log("CLIENT IP", { clientIp }, req.origin, req['x-real-ip']);
+  console.log("CLIENT IP", { clientIp, req }, req.origin, req);
 
   // Verifica se o IP está na whitelist (sua VPN)
   if (vpnIpAddress.includes(clientIp)) {
