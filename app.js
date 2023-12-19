@@ -24,7 +24,7 @@ const checkVpnIp = (req, res, next) => {
 };
 
 // Aplica o middleware de verificação de IP
-app.use(checkVpnIp);
+//app.use(checkVpnIp);
 
 // Middleware de whitelist
 const whitelistMiddleware = (req, res, next) => {
