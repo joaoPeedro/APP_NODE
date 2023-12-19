@@ -4,7 +4,7 @@ const app = express();
 const port = 3120;
 
 // Lista de IPs autorizados na whitelist
-const whitelist = ['192.168.1.1', '10.0.0.1', 'http://localhost:3120'];
+const whitelist = ['192.168.1.1', '10.0.0.1', 'http://localhost:3120', 'http://localhost:3000'];
 
 // Endereço IP da sua VPN
 const vpnIpAddress = '93.176.86.249'; // Substitua pelo IP da sua VPN
