@@ -17,9 +17,9 @@ const vpnIpAddress = ["93.176.86.249", "127.0.0.1"]; // Substitua pelo IP da sua
 
 // Middleware para verificar o IP
 const checkVpnIp = (req, res, next) => {
-  const clientIp = req.ip; // Obtém o IP do cliente da solicitação
+  const clientIp = req['x-real-ip']; // Obtém o IP do cliente da solicitação
 
-  console.log("CLIENT IP", { clientIp, req });
+  console.log("CLIENT IP", { clientIp }, req.origin, req['x-real-ip']);
 
   // Verifica se o IP está na whitelist (sua VPN)
   if (vpnIpAddress.includes(clientIp)) {
