@@ -13,7 +13,7 @@ const vpnIpAddress = '93.176.86.249'; // Substitua pelo IP da sua VPN
 const checkVpnIp = (req, res, next) => {
   const clientIp = req.ip; // Obtém o IP do cliente da solicitação
 
-  console.log(clientIp);
+  console.log('CLIENT IP',{clientIp});
 
   // Verifica se o IP está na whitelist (sua VPN)
   if (clientIp === vpnIpAddress) {
